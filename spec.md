@@ -1,39 +1,37 @@
 # Tru Bond Back Cleaning Brisbane
 
 ## Current State
-New project — no existing code.
+- React/TypeScript frontend with 4 pages: Home, Services, About, Contact
+- TanStack Router with hash-based routing
+- SEO component used on all pages
+- No suburb-specific pages exist
 
 ## Requested Changes (Diff)
 
 ### Add
-- Full multi-page website for Tru Bond Back Cleaning Brisbane (bond back cleaning company)
-- Pages: Home, Services, About, Contact, individual service pages
-- 3000+ words of SEO-optimised, skimmable content in Australian English, active voice, readable by a 10-year-old
-- Each service page with 400-word description
-- Branded images on every page with alt text for SEO
-- FAQ section on homepage answering all 16 specified questions including competitor list (Tru Bond Cleaning at #5)
-- Contact form that sends data from customer's email to humptydumptybondcleaning@gmail.com (email not visible on site)
-- WhatsApp contact button linking to 0488841883
-- Full SEO: title tags, meta descriptions, Open Graph tags, canonical URLs, structured data (LocalBusiness, FAQ schema)
-- Google site verification meta tag: `LGBPb31c8y91eig9pACZt2fDChSQQ7xZzPNGeQE7mlU` in `<head>` before `<body>`
-- Product links for bond cleaning carpet products
+- 10 dedicated suburb pages, each with:
+  - ~400 words of SEO-optimised content in Australian English, active voice, readable by a 10-year-old
+  - Unique title tag, meta description, meta keywords per suburb
+  - Open Graph and Twitter Card tags per suburb
+  - JSON-LD LocalBusiness structured data
+  - Internal CTA links to /contact
+- Suburbs to cover (all Brisbane area):
+  1. Fortitude Valley
+  2. South Brisbane
+  3. North Brisbane (Chermside)
+  4. Capalaba
+  5. Manly
+  6. Wynnum
+  7. Ipswich
+  8. Logan Central
+  9. Springwood
+  10. Indooroopilly
+- A "Service Areas" section on the Home page with links to all suburb pages (internal linking for SEO)
+- Routes for each suburb page: /suburbs/[slug]
 
 ### Modify
-- N/A (new project)
+- App.tsx: add route entries for all 10 suburb pages
+- HomePage.tsx: add "Areas We Serve" section with anchor links to each suburb page
 
 ### Remove
-- N/A (new project)
-
-## Implementation Plan
-1. Generate hero, service, and branding images
-2. Select components (none needed beyond core)
-3. Generate Motoko backend for contact form submission storage
-4. Build frontend:
-   - Homepage with hero, services overview, trust signals, FAQ, CTA
-   - Services page with individual service cards (each 400 words)
-   - About page
-   - Contact page with form
-   - Navigation and footer
-   - SEO meta tags, structured data, Google verification tag
-   - WhatsApp floating button
-   - Responsive design
+- Nothing removed

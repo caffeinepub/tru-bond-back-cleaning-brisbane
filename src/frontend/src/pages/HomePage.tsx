@@ -15,12 +15,76 @@ import {
   Clock,
   Home,
   Leaf,
+  MapPin,
   Phone,
   Shield,
   Sparkles,
   Star,
   Users,
 } from "lucide-react";
+
+const suburbs = [
+  {
+    name: "Fortitude Valley",
+    slug: "fortitude-valley",
+    blurb: "Inner-city apartments and heritage homes",
+    ocid: "suburbs.item.1",
+  },
+  {
+    name: "South Brisbane",
+    slug: "south-brisbane",
+    blurb: "Close to the CBD, high tenant turnover",
+    ocid: "suburbs.item.2",
+  },
+  {
+    name: "Chermside",
+    slug: "chermside",
+    blurb: "Family homes and new apartments",
+    ocid: "suburbs.item.3",
+  },
+  {
+    name: "Capalaba",
+    slug: "capalaba",
+    blurb: "Bayside living with local expertise",
+    ocid: "suburbs.item.4",
+  },
+  {
+    name: "Manly",
+    slug: "manly",
+    blurb: "Waterfront properties and beach-side units",
+    ocid: "suburbs.item.5",
+  },
+  {
+    name: "Wynnum",
+    slug: "wynnum",
+    blurb: "Coastal suburb with a relaxed vibe",
+    ocid: "suburbs.item.6",
+  },
+  {
+    name: "Ipswich",
+    slug: "ipswich",
+    blurb: "Growing city with affordable rentals",
+    ocid: "suburbs.item.7",
+  },
+  {
+    name: "Logan Central",
+    slug: "logan-central",
+    blurb: "Busy rental market, fast turnaround",
+    ocid: "suburbs.item.8",
+  },
+  {
+    name: "Springwood",
+    slug: "springwood",
+    blurb: "Southern Brisbane families and units",
+    ocid: "suburbs.item.9",
+  },
+  {
+    name: "Indooroopilly",
+    slug: "indooroopilly",
+    blurb: "Leafy suburb near the university",
+    ocid: "suburbs.item.10",
+  },
+];
 
 const trustSignals = [
   { icon: Shield, label: "100% Bond Back Guarantee" },
@@ -552,8 +616,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===================== SERVICES OVERVIEW ===================== */}
+      {/* ===================== AREAS WE SERVE ===================== */}
       <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="section-tag mx-auto">
+              <MapPin size={12} />
+              Service Areas
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-foreground mb-3">
+              Bond Cleaning Across Brisbane — We Come to You
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base">
+              Click your suburb to learn more about our service in your area
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {suburbs.map((suburb) => (
+              <a
+                key={suburb.slug}
+                href={`#/suburbs/${suburb.slug}`}
+                data-ocid={suburb.ocid}
+                className="group block bg-white rounded-2xl border border-border p-5 shadow-xs card-hover hover:border-[oklch(0.38_0.12_193_/_0.4)] hover:shadow-md transition-all no-underline"
+              >
+                <div className="w-9 h-9 bg-[oklch(0.38_0.12_193_/_0.1)] rounded-xl flex items-center justify-center mb-3 group-hover:bg-[oklch(0.38_0.12_193_/_0.15)] transition-colors">
+                  <MapPin size={16} className="text-[oklch(0.38_0.12_193)]" />
+                </div>
+                <h3 className="font-display font-bold text-sm text-foreground mb-1 group-hover:text-[oklch(0.38_0.12_193)] transition-colors">
+                  {suburb.name}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                  {suburb.blurb}
+                </p>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[oklch(0.38_0.12_193)] group-hover:gap-2 transition-all">
+                  Learn More <ArrowRight size={12} />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== SERVICES OVERVIEW ===================== */}
+      <section className="py-16 md:py-20 bg-[oklch(0.96_0.015_210)]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <span className="section-tag mx-auto">
